@@ -1,124 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Enchanting Webpage</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .neumorphic-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #00008b;
-      color: #fff;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .neumorphic-btn::before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      bottom: 10px;
-      left: 10px;
-      border-radius: 15px;
-      background: #e67e22;
-      z-index: -1;
-    }
-
-    .spinner {
-      border: 4px solid #fff;
-      border-top: 4px solid #e67e22;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      animation: rotate92523 2s infinite cubic-bezier(0.77, 0, 0.175, 1);
-      display: none;
-    }
-
-    /* Adjust the spinner styling based on your design preferences */
-
-    /* Add media queries for responsiveness */
-  </style>
-  <script>
-    function handleGetStarted() {
-      // Display loader
-      document.getElementById('loadingSpinner').style.display = 'inline-block';
-
-      // Simulate backend data extraction (replace with your actual backend logic)
-      setTimeout(() => {
-        // Capture user information
-        const userEmail = prompt("Please enter your email:");
-        const sessionID = generateSessionID();
-        const deviceType = getDeviceType();
-
-        // Simulate storing data with OpenEBS (replace with actual OpenEBS integration)
-        const userData = {
-          email: userEmail,
-          sessionID: sessionID,
-          deviceType: deviceType
-        };
-
-        // Redirect to Google business page for leaving a review
-        window.location.href = 'https://www.google.com/';
-
-        // Hide loader after redirection (optional)
-        document.getElementById('loadingSpinner').style.display = 'none';
-
-        // Simulate a random "Thank you" message
-        const thankYouMessages = [
-          "Thank you for your review! 🌟",
-          "Your feedback is greatly appreciated! 🙌",
-          "Gratitude for sharing your thoughts with us! 🚀"
-        ];
-
-        const randomThankYou = thankYouMessages[Math.floor(Math.random() * thankYouMessages.length)];
-        alert(randomThankYou);
-      }, 2000); // Simulating a 2-second delay, adjust as needed
-    }
-
-    function generateSessionID() {
-      // Generate a unique session ID using a combination of timestamp and a random number
-      const timestamp = new Date().getTime();
-      const randomNum = Math.floor(Math.random() * 1000000);
-      return `SESSION_${timestamp}_${randomNum}`;
-    }
-
-    function getDeviceType() {
-      // Detect the device type based on screen width
-      const screenWidth = window.innerWidth;
-      if (screenWidth < 768) {
-        return "Mobile";
-      } else if (screenWidth >= 768 && screenWidth < 1024) {
-        return "Tablet";
-      } else {
-        return "Desktop";
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sample Project</title>
 </head>
 <body>
+    <div class="container">
+        <!-- Loader -->
+        <div class="loader"></div>
+        
+        <!-- Content -->
+        <h1>Welcome to Our Company!</h1>
+        <p>We provide top-notch services tailored to meet your needs.</p>
+        
+        <!-- Call To Action Button -->
+        <a href="https://www.google.com/business/" class="cta-button">Get Started</a>
+    </div>
 
-  <button id="getStartedBtn" onclick="handleGetStarted()" class="neumorphic-btn">
-    <span id="btnText">Get Started</span>
-    <div class="spinner" id="loadingSpinner"></div>
-  </button>
-
+    <script src="app.js"></script>
 </body>
 </html>
